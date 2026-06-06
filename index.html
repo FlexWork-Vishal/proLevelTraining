@@ -18,6 +18,7 @@
         --ease-out: cubic-bezier(.22,1,.36,1);
         --ease-spring: cubic-bezier(.34,1.56,.64,1);
       }
+      /* ── ANIMATIONS (must stay in <style>) ── */
       @keyframes fadeUp   { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:none} }
       @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:none} }
       @keyframes float1   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
@@ -27,6 +28,7 @@
       @keyframes ripple-anim  { to{transform:scale(4);opacity:0;} }
       @keyframes bannerShimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
       @keyframes footFadeUp   { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+      /* ── REVEAL SCROLL ANIMATION ── */
       .reveal { opacity:0; transform:translateY(36px); transition:opacity .7s var(--ease-out),transform .7s var(--ease-out); }
       .reveal.visible { opacity:1 !important; transform:none !important; }
       .stagger > * { opacity:0; transform:translateY(28px); transition:opacity .6s var(--ease-out),transform .6s var(--ease-out); }
@@ -34,11 +36,13 @@
       .stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.15s }
       .stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.25s }
       .stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.35s }
+      /* ── HERO ANIMATIONS ── */
       .hero-badge   { animation:fadeDown .6s .1s both var(--ease-out); }
       .hero-heading { animation:fadeUp .75s .2s both var(--ease-out); }
       .hero-sub     { animation:fadeUp .75s .35s both var(--ease-out); }
       .hero-btns    { animation:fadeUp .75s .5s both var(--ease-out); }
       .hero-img     { animation:fadeUp .9s .25s both var(--ease-out); }
+      /* ── FLOAT CARDS ── */
       .float-card-1 { animation:float1 4s ease-in-out infinite; }
       .float-card-2 { animation:float2 5s ease-in-out infinite; }
       .float-card-3 { animation:float1 4.5s 1s ease-in-out infinite; }
@@ -51,6 +55,7 @@
       .hero-card-yellow { animation-name:float1,pulse-ring-y !important; animation-duration:4.5s,3s !important; animation-iteration-count:infinite,infinite !important; animation-timing-function:ease-in-out,ease-out !important; transition:background .35s ease,box-shadow .35s ease,transform .35s var(--ease-spring) !important; cursor:default; }
       .hero-card-yellow:hover { background:var(--yellow) !important; box-shadow:0 24px 60px var(--yellow-glow) !important; transform:translateY(-10px) scale(1.04) !important; }
       .hero-card-yellow:hover * { color:#111827 !important; }
+      /* ── FEATURE CARDS ── */
       .feature-card { transition:background .35s ease,box-shadow .4s ease,transform .35s var(--ease-spring),border-color .3s ease !important; will-change:transform; position:relative; overflow:hidden; }
       .feature-card::before { content:''; position:absolute; inset:0; border-radius:inherit; background:var(--purple); opacity:0; transition:opacity .35s ease; z-index:0; }
       .feature-card > * { position:relative; z-index:1; }
@@ -64,7 +69,6 @@
       .feature-card-yellow:hover h4,.feature-card-yellow:hover p { color:#111827 !important; }
       .feature-card-yellow:hover .icon-box-yellow { background:rgba(0,0,0,.1) !important; }
       .feature-card-yellow:hover .icon-box-yellow i { color:#111827 !important; }
-
       /* ── COURSE CARDS ── */
       .course-card { transition:transform .35s var(--ease-spring),box-shadow .35s ease,border-color .3s ease !important; will-change:transform; position:relative; overflow:hidden; }
       .course-card::after { content:''; position:absolute; bottom:0;left:0;right:0; height:4px; background:linear-gradient(90deg,var(--purple),#a78bfa); transform:scaleX(0); transform-origin:left; transition:transform .4s var(--ease-out); }
@@ -72,10 +76,9 @@
       .course-card:hover::after { transform:scaleX(1); }
       .course-card:hover .enroll-btn { background:var(--purple) !important; box-shadow:0 8px 24px var(--purple-glow); transform:scale(1.05); }
       .course-img-wrap { overflow:hidden; }
-      .course-img-wrap img { width:100%; height:220px; object-fit:fill; transition:transform .6s ease; }
+      .course-img-wrap img { width:100%; height:220px; object-fit:cover; transition:transform .6s ease; }
       .course-card:hover .course-img-wrap img { transform:scale(1.06); }
       .enroll-btn { transition:background .3s ease,transform .25s ease,box-shadow .3s ease !important; }
-
       /* ── TESTI CARDS ── */
       .testi-card { transition:transform .35s var(--ease-spring),box-shadow .35s ease !important; will-change:transform; position:relative; overflow:hidden; border-radius:28px; box-shadow:0 10px 35px rgba(0,0,0,.06); background:white; }
       .testi-card::after { content:''; position:absolute; bottom:0;left:0;right:0; height:4px; background:linear-gradient(90deg,var(--yellow),#ffaa00); transform:scaleX(0); transform-origin:left; transition:transform .4s var(--ease-out); }
@@ -84,7 +87,6 @@
       .testi-card .testi-img-wrap { overflow:hidden; height:280px; }
       .testi-card .testi-img-wrap img { width:100%; height:100%; object-fit:cover; object-position:top; transition:transform .6s ease; }
       .testi-card:hover .testi-img-wrap img { transform:scale(1.05); }
-
       /* ── NAV ── */
       .nav-link { position:relative; transition:color .25s ease; }
       .nav-link::after { content:''; position:absolute; left:0; bottom:-3px; width:0; height:2px; background:var(--purple); transition:width .3s ease; border-radius:2px; }
@@ -94,7 +96,6 @@
       .nav-btn-login:hover { background:var(--purple-light) !important; border-color:var(--purple) !important; color:var(--purple) !important; transform:translateY(-2px); box-shadow:0 6px 18px var(--purple-glow); }
       .nav-btn-started { transition:background .3s ease,transform .25s var(--ease-spring),box-shadow .3s ease !important; }
       .nav-btn-started:hover { background:#e6b800 !important; transform:translateY(-2px) scale(1.04); box-shadow:0 8px 22px var(--yellow-glow); }
-
       /* ── HERO BUTTONS ── */
       .btn-hero-primary { transition:background .3s ease,transform .25s var(--ease-spring),box-shadow .3s ease !important; position:relative; overflow:hidden; }
       .btn-hero-primary::before { content:''; position:absolute; inset:0; background:rgba(255,255,255,.15); transform:translateX(-100%) skewX(-15deg); transition:transform .5s ease; }
@@ -102,33 +103,43 @@
       .btn-hero-primary:hover { background:#e6b800 !important; transform:translateY(-3px) scale(1.04); box-shadow:0 10px 28px var(--yellow-glow) !important; }
       .btn-hero-outline { transition:all .3s ease !important; }
       .btn-hero-outline:hover { background:var(--purple) !important; color:white !important; border-color:var(--purple) !important; transform:translateY(-3px); box-shadow:0 10px 28px var(--purple-glow); }
+      /* ── STAT ITEMS ── */
       .stat-item { transition:transform .3s var(--ease-spring),background .3s ease; border-radius:16px; padding:12px 8px; cursor:default; }
       .stat-item:hover { background:var(--purple-light); transform:translateY(-4px) scale(1.04); }
       .stat-item:hover .stat-icon { color:var(--purple) !important; }
+      /* ── EXE CIRCLES ── */
       .exe-circle { width:96px; height:96px; margin:0 auto; border-radius:50%; background:#7b7dfc; display:flex; align-items:center; justify-content:center; box-shadow:0 12px 28px rgba(123,125,252,.25); transition:background .35s ease,box-shadow .35s ease,transform .35s var(--ease-spring); cursor:default; }
       .exe-circle i { font-size:34px; color:#fff; transition:color .35s ease; }
       .exe-step:hover .exe-circle { background:#ffcd00; box-shadow:0 16px 40px rgba(255,205,0,.4); transform:translateY(-6px) scale(1.08); }
       .exe-step:hover .exe-circle i { color:#111827; }
+      /* ── ACCORDION ── */
       .accordion-button { transition:background .25s ease,color .25s ease !important; }
       .accordion-item-fx { transition:box-shadow .3s ease,transform .3s var(--ease-spring) !important; }
       .accordion-item-fx:hover { transform:translateX(6px); box-shadow:0 8px 32px rgba(123,125,252,.13) !important; }
       .accordion-button:not(.collapsed) { color:var(--purple) !important; background:transparent !important; box-shadow:none !important; }
       .accordion-button:hover { color:var(--purple) !important; }
       .accordion-button:focus { box-shadow:none !important; }
+      /* ── SUPPORT CARD ── */
       .support-card { transition:transform .35s var(--ease-spring),box-shadow .35s ease !important; }
       .support-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px var(--purple-glow) !important; }
       .btn-support { transition:background .3s ease,transform .25s var(--ease-spring),box-shadow .3s ease !important; }
       .btn-support:hover { background:var(--purple) !important; color:white !important; transform:scale(1.05); box-shadow:0 8px 20px var(--purple-glow); }
+      /* ── HOVER LIFT ── */
       .hover-lift { transition:transform .3s var(--ease-out),box-shadow .3s ease !important; }
       .hover-lift:hover { transform:translateY(-6px) !important; box-shadow:0 20px 45px var(--purple-glow) !important; }
+      /* ── SHIMMER TEXT ── */
       .shimmer-text { background:#7B7DFC; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+      /* ── RIPPLE ── */
       .ripple-btn { position:relative; overflow:hidden; }
       .ripple-btn .ripple-circle { position:absolute; border-radius:50%; background:rgba(255,255,255,.4); transform:scale(0); animation:ripple-anim .6s linear; pointer-events:none; }
+      /* ── SCROLL PROGRESS ── */
       #scroll-progress { position:fixed; top:0; left:0; height:3px; z-index:9999; background:linear-gradient(90deg,var(--purple),var(--yellow)); transition:width .1s linear; border-radius:0 2px 2px 0; width:0%; }
+      /* ── BACK TO TOP ── */
       #back-to-top { position:fixed; bottom:32px; right:32px; width:48px; height:48px; border-radius:50%; background:var(--purple); color:white; display:flex; align-items:center; justify-content:center; font-size:20px; cursor:pointer; z-index:999; opacity:0; transform:translateY(20px); transition:opacity .3s ease,transform .3s var(--ease-spring),background .3s ease,box-shadow .3s ease; box-shadow:0 8px 24px var(--purple-glow); border:none; }
       #back-to-top.visible { opacity:1; transform:translateY(0); }
       #back-to-top:hover { background:var(--yellow); box-shadow:0 10px 28px var(--yellow-glow); transform:translateY(-4px) scale(1.1); }
       #back-to-top:hover i { color:#111827; }
+      /* ── CTA BANNER ── */
       .cta-banner-wrap { position:relative; border-radius:24px; overflow:hidden; box-shadow:0 20px 60px rgba(123,125,252,.35),0 4px 20px rgba(0,0,0,.15); transition:transform .4s var(--ease-spring),box-shadow .4s ease; }
       .cta-banner-wrap:hover { transform:translateY(-4px); box-shadow:0 32px 80px rgba(123,125,252,.45),0 8px 32px rgba(0,0,0,.2); }
       .cta-banner-wrap::before { content:''; position:absolute; inset:0; z-index:3; background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.18) 50%,transparent 65%); background-size:200% 100%; animation:bannerShimmer 3.5s ease-in-out infinite; pointer-events:none; }
@@ -136,6 +147,7 @@
       .btn-apply:hover { background:#e6b800 !important; transform:translateY(-3px) scale(1.05); box-shadow:0 10px 28px rgba(255,205,0,.5); }
       .btn-advisor { transition:all .3s ease; }
       .btn-advisor:hover { background:rgba(255,255,255,.18) !important; border-color:rgba(255,255,255,.8) !important; transform:translateY(-3px) scale(1.04); }
+      /* ── FOOTER ── */
       .foot-anim { opacity:0; }
       .foot-anim.foot-visible { animation:footFadeUp .65s var(--ease-out) both; }
       .foot-anim:nth-child(1).foot-visible { animation-delay:.05s; }
@@ -150,6 +162,7 @@
       .foot-link { transition:color .25s ease,padding-left .25s ease; display:inline-block; }
       .foot-link:hover { color:var(--purple) !important; padding-left:5px; }
       .foot-divider { border:none; height:1px; background:linear-gradient(90deg,transparent,#e5e7eb 20%,#e5e7eb 80%,transparent); margin:32px 0 20px; }
+      /* ── HERO STATS ROW ── */
       .hero-bottom-row { display:flex; align-items:center; gap:24px; background:white; border-radius:24px; padding:20px 28px; box-shadow:0 10px 30px rgba(0,0,0,.08); }
       .hero-social-proof { display:flex; align-items:center; gap:14px; flex-shrink:0; padding-right:24px; border-right:1px solid #e5e7eb; }
       .hero-social-proof .avatars { display:flex; }
@@ -158,6 +171,7 @@
       .hero-stats-inline .stat-item { display:flex; align-items:center; gap:10px; padding:8px 12px; border-radius:14px; flex:1; justify-content:center; }
       .hero-stats-inline .stat-item .stat-num-val { font-size:22px; font-weight:800; color:#111827; line-height:1.1; }
       .hero-stats-inline .stat-item .stat-label { font-size:13px; color:#6b7280; line-height:1.2; }
+      /* ── TESTI NAV ── */
       .testi-nav-btn { position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:1.5px solid #e0e0ef; background:white; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:10; transition:background .3s ease,border-color .3s ease,box-shadow .3s ease,transform .3s var(--ease-spring); box-shadow:0 2px 10px rgba(123,125,252,.08); font-size:14px; color:#111827; }
       .testi-nav-btn:hover { background:#f0f0ff; border-color:#7B7DFC; color:#7B7DFC; transform:translateY(-50%) scale(1.1); box-shadow:0 6px 20px rgba(123,125,252,.2); }
       .testi-nav-btn.prev { left:6px; }
@@ -165,6 +179,10 @@
       .testi-dot { width:10px; height:10px; border-radius:50%; background:#d1d5db; transition:background .3s ease,transform .3s ease; cursor:pointer; }
       .testi-dot.active { background:var(--purple); transform:scale(1.2); }
       .bi-meta { font-size:26px; color:#1877F2; }
+      /* ══════════════════════════════════════
+         RESPONSIVE FIXES
+      ══════════════════════════════════════ */
+      /* Hero mobile */
       @media (max-width:991px) {
         .hero-img { height:auto !important; min-height:300px; }
         .float-card-1,.float-card-2,.float-card-3,.float-card-4 { display:none !important; }
@@ -177,6 +195,7 @@
         .hero-heading { font-size:36px !important; }
         .hero-stats-inline .stat-item { flex:1 1 100%; }
       }
+      /* EXE section mobile */
       @media (max-width:991px) {
         .exe-timeline { flex-direction:column !important; gap:40px; align-items:center; }
         .exe-line,.exe-dot,.exe-step-divider { display:none !important; }
@@ -186,10 +205,12 @@
         .exe-section { padding:32px 20px !important; }
         .exe-header h2 { font-size:26px !important; }
       }
+      /* Testi section mobile */
       @media (max-width:575px) {
         .testi-section-header h2 { font-size:30px !important; }
         .testi-slider-wrap { padding:0 44px; }
       }
+      /* CTA Banner mobile */
       @media (max-width:991px) {
         .cta-banner-inner { flex-direction:column !important; align-items:center !important; text-align:center; padding:32px 24px !important; }
         .cta-text-block { position:static !important; transform:none !important; margin-bottom:20px; }
@@ -200,11 +221,14 @@
       @media (max-width:575px) {
         .cta-text-block div { font-size:20px !important; }
       }
+
+      /* FAQ mobile */
       @media (max-width:991px) {
         .faq-row { flex-direction:column; }
         .faq-left { margin-bottom:32px; }
         .support-card { margin-top:32px !important; }
       }
+      /* Footer mobile */
       @media (max-width:767px) {
         footer { padding:40px 20px 24px !important; }
       }
@@ -213,6 +237,7 @@
   <body style="font-family:'Lato',sans-serif;background:#fafaff;">
     <div id="scroll-progress"></div>
     <button id="back-to-top" title="Back to top"><i class="bi bi-arrow-up"></i></button>
+    <!-- ══ NAVBAR ══ -->
     <nav class="navbar navbar-expand-lg bg-white py-4">
       <div class="container">
         <a class="navbar-brand fw-bold fs-2 text-decoration-none" href="#" style="color:#4f46e5;">
@@ -239,6 +264,7 @@
         </div>
       </div>
     </nav>
+    <!-- ══ HERO ══ -->
     <section class="bg-white overflow-hidden">
       <div class="container">
         <div class="row align-items-center">
@@ -306,6 +332,8 @@
             </div>
           </div>
         </div>
+
+        <!-- STATS BAR -->
         <div class="row justify-content-center mt-0 pb-2">
           <div class="col-12">
             <div class="hero-bottom-row">
@@ -355,6 +383,7 @@
         </div>
       </div>
     </section>
+    <!-- ══ FEATURES ══ -->
     <section class="pt-5 pb-5">
       <div class="container">
         <div class="row g-4">
@@ -415,6 +444,7 @@
         </div>
       </div>
     </section>
+    <!-- ══ SELECT YOUR PATH ══ -->
     <section class="pb-5">
       <div class="container">
         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center mb-5">
@@ -535,11 +565,10 @@
               </div>
             </div>
           </div>
-
-          <!-- Duplicate this col-lg-4 block for the other two cards -->
         </div>
       </div>
     </section>
+    <!-- ══ EXECUTIVE LEARNING EXPERIENCE ══ -->
     <section class="pb-5">
       <div class="container">
         <div class="exe-section reveal"
@@ -552,6 +581,11 @@
               career growth, and continuous upskilling.
             </p>
           </div>
+          <div class="exe-timeline" style="position:relative;display:flex;align-items:flex-start;">
+            <div class="exe-line" style="position:absolute;top:45px;left:12%;width:76%;border-top:2px dashed #ddd6fe;z-index:0;"></div>
+            <span style="position:absolute;width:12px;height:12px;border-radius:50%;background:#ffcd00;top:39px;z-index:1;left:27%;"></span>
+            <span style="position:absolute;width:12px;height:12px;border-radius:50%;background:#ffcd00;top:39px;z-index:1;left:50%;transform:translateX(-50%);"></span>
+            <span style="position:absolute;width:12px;height:12px;border-radius:50%;background:#ffcd00;top:39px;z-index:1;right:27%;"></span>
 
             <div class="exe-step" style="flex:1;text-align:center;position:relative;z-index:2;">
               <div class="exe-circle"><i class="bi bi-people"></i></div>
@@ -588,6 +622,7 @@
         </div>
       </div>
     </section>
+    <!-- ══ PROVEN LEADERSHIP TRANSITION ══ -->
     <section class="pb-5">
       <div class="container">
         <div style="text-align:center;margin-bottom:48px;">
@@ -671,17 +706,20 @@
         </div>
       </div>
     </section>
+
+    <!-- ══ FAQ ══ -->
     <section class="pb-5">
       <div class="container">
-        <div class="cta-banner-wrap reveal">
-          <img src="bannerProlevelTraining.png" alt="Banner"
-               style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
-          <div class="cta-banner-inner d-flex align-items-center"
-               style="position:relative;z-index:4;min-height:120px;padding:28px 40px;gap:24px;flex-wrap:wrap;justify-content:space-between;">
-            <!-- Text -->
-            <div class="cta-text-block" style="margin-left:clamp(0px,40%,300px);">
-              <div class="text-white fw-bold" style="font-size:clamp(18px,2.2vw,26px);line-height:1.2;">Executive-Level Learning</div>
-              <div class="text-white" style="font-size:clamp(16px,1.8vw,22px);opacity:.9;">for Modern Professionals</div>
+        <div class="row align-items-start g-5 faq-row">
+
+          <!-- Left -->
+          <div class="col-lg-5 faq-left d-flex flex-column">
+            <div>
+              <h2 class="fw-bold mb-4" style="font-size:36px;line-height:1.15;color:#111827;">Frequently Asked Questions</h2>
+              <p style="font-size:18px;line-height:1.8;color:#6b7280;">
+                Everything you need to know about our executive education programs, enrollment process,
+                cohort structure, and professional outcomes.
+              </p>
             </div>
             <div class="support-card reveal mt-auto" style="background:#f7f5ff;padding:35px;border-radius:28px;">
               <div class="d-flex align-items-center gap-3 mb-3">
@@ -697,10 +735,11 @@
               </button>
             </div>
           </div>
+          <!-- Right – ALL accordions start collapsed (consistent animation) -->
           <div class="col-lg-7 pt-4">
             <div class="accordion" id="faqAccordion">
               <div class="accordion-item border-0 mb-3 accordion-item-fx reveal"
-               style="border-radius:20px;overflow:hidden;background:white;box-shadow:0 6px 20px rgba(0,0,0,.04);">
+                style="border-radius:20px;overflow:hidden;background:white;box-shadow:0 6px 20px rgba(0,0,0,.04);">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed fw-bold" type="button"
                     data-bs-toggle="collapse" data-bs-target="#faq1"
@@ -747,6 +786,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="accordion-item border-0 mb-3 accordion-item-fx reveal"
                 style="border-radius:20px;overflow:hidden;background:white;box-shadow:0 6px 20px rgba(0,0,0,.04);">
                 <h2 class="accordion-header">
@@ -763,6 +803,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="accordion-item border-0 accordion-item-fx"
                 style="border-radius:20px;overflow:hidden;background:white;box-shadow:0 6px 20px rgba(0,0,0,.04);">
                 <h2 class="accordion-header">
@@ -785,36 +826,51 @@
         </div>
       </div>
     </section>
+    <!-- ══ CTA BANNER ══ -->
     <section class="pb-5">
       <div class="container">
         <div class="cta-banner-wrap reveal">
           <img src="bannerProlevelTraining.png" alt="Banner"
                style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
           <div class="cta-banner-inner d-flex align-items-center"
-               style="position:relative;z-index:4;min-height:120px;padding:28px 40px;gap:24px;flex-wrap:wrap;justify-content:space-between;">
-            <!-- Text -->
-            <div class="cta-text-block" style="margin-left:clamp(0px,40%,300px);">
-              <div class="text-white fw-bold" style="font-size:clamp(18px,2.2vw,26px);line-height:1.2;">Executive-Level Learning</div>
-              <div class="text-white" style="font-size:clamp(16px,1.8vw,22px);opacity:.9;">for Modern Professionals</div>
-            </div>
-
-      <button class="btn fw-bold px-4 py-3 btn-apply ripple-btn"
-              style="background:#ffcd00;border:none;border-radius:12px;font-size:16px;white-space:nowrap;">
-        Apply Now <i class="bi bi-arrow-right ms-1"></i>
-      </button>
-
-      <button class="btn fw-bold px-4 py-3 text-white btn-advisor ripple-btn"
-              style="border:2px solid rgba(255,255,255,.4);border-radius:12px;font-size:16px;white-space:nowrap;">
-        Talk to an Advisor <i class="bi bi-headset ms-1"></i>
-      </button>
-
+     style="position:relative;z-index:4;min-height:120px;padding:28px 40px;gap:24px;flex-wrap:wrap;justify-content:space-between;">
+  <!-- Text -->
+  <div class="cta-text-block" style="margin-left:300px;">
+    <div class="text-white fw-bold"
+         style="font-size:clamp(18px,2.2vw,26px);line-height:1.2;">
+      Executive-Level Learning
     </div>
-
+    <div class="text-white"
+         style="font-size:clamp(16px,1.8vw,22px);opacity:.9;">
+      for Modern Professionals
+    </div>
   </div>
+            <!-- Buttons -->
+<div class="cta-btn-block d-flex align-items-center flex-wrap"
+     style="gap:24px; margin-right:80px;">
 
+  <button class="btn fw-bold px-4 py-3 btn-apply ripple-btn"
+          style="background:#ffcd00;
+                 border:none;
+                 border-radius:12px;
+                 font-size:16px;
+                 white-space:nowrap;">
+    Apply Now <i class="bi bi-arrow-right ms-1"></i>
+  </button>
+  <button class="btn fw-bold px-4 py-3 text-white btn-advisor ripple-btn"
+          style="border:2px solid rgba(255,255,255,.4);
+                 border-radius:12px;
+                 font-size:16px;
+                 white-space:nowrap;">
+    Talk to an Advisor <i class="bi bi-headset ms-1"></i>
+  </button>
 </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+    <!-- ══ FOOTER ══ -->
     <footer style="background:#fff;border-top:1px solid #f0f0f8;padding:48px 80px 32px;">
       <div class="container-fluid px-0">
         <div class="row g-4 mb-4">
@@ -878,9 +934,9 @@
         </div>
       </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+    /* Reveal on scroll */
     (function () {
       const revealEls = document.querySelectorAll('.reveal, .stagger');
       if (!revealEls.length) return;
@@ -898,6 +954,7 @@
         io.observe(el);
       });
     })();
+    /* Scroll progress bar */
     (function () {
       const bar = document.getElementById('scroll-progress');
       if (!bar) return;
@@ -907,12 +964,14 @@
         bar.style.width = (scrolled * 100).toFixed(2) + '%';
       }, { passive: true });
     })();
+    /* Back to top */
     (function () {
       const btn = document.getElementById('back-to-top');
       if (!btn) return;
       window.addEventListener('scroll', () => { btn.classList.toggle('visible', window.scrollY > 400); }, { passive: true });
       btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     })();
+    /* Ripple */
     (function () {
       document.querySelectorAll('.ripple-btn').forEach((btn) => {
         btn.addEventListener('click', function (e) {
@@ -928,6 +987,7 @@
         });
       });
     })();
+    /* Navbar scroll shadow */
     (function () {
       const nav = document.querySelector('.navbar');
       if (!nav) return;
@@ -936,6 +996,7 @@
         nav.style.padding   = window.scrollY > 60 ? '12px 0' : '';
       }, { passive: true });
     })();
+    /* 3D tilt on cards */
     (function () {
       document.querySelectorAll('.feature-card, .course-card, .testi-card').forEach((card) => {
         card.addEventListener('mousemove', (e) => {
@@ -951,6 +1012,7 @@
         card.addEventListener('mouseenter', () => { card.style.transition = 'none'; });
       });
     })();
+    /* Testimonial dot navigation */
     (function () {
       const dots = document.querySelectorAll('.testi-dot');
       const prev = document.querySelector('.testi-nav-btn.prev');
@@ -965,7 +1027,6 @@
       if (prev) prev.addEventListener('click', () => setDot(current - 1));
       if (next) next.addEventListener('click', () => setDot(current + 1));
     })();
-
     /* Footer fade-up */
     (function () {
       const footEls = document.querySelectorAll('.foot-anim');
@@ -977,6 +1038,7 @@
       }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
       footEls.forEach(el => io.observe(el));
     })();
+    /* FAQ accordion color sync */
     (function() {
       document.querySelectorAll('.accordion-button').forEach(btn => {
         btn.addEventListener('click', function() {
@@ -989,7 +1051,8 @@
             });
           }, 10);
         });
-      });})();
+      });
+    })();
     </script>
   </body>
 </html>
