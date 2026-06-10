@@ -42,6 +42,19 @@
       .hero-sub     { animation:fadeUp .75s .35s both var(--ease-out); }
       .hero-btns    { animation:fadeUp .75s .5s both var(--ease-out); }
       .hero-img     { animation:fadeUp .9s .25s both var(--ease-out); }
+      /* ── FIX 2: 4th card (Live Mentorship) — same pulse-ring + float2 as purple cards ── */
+      .hero-card-4 {
+        animation-name: float2, pulse-ring !important;
+        animation-duration: 5.5s, 2.8s !important;
+        animation-iteration-count: infinite, infinite !important;
+        animation-timing-function: ease-in-out, ease-out !important;
+        transition: background .35s ease, box-shadow .35s ease, transform .35s var(--ease-spring) !important;
+        cursor: default;
+      }
+      .hero-card-4:hover { background: var(--purple) !important; box-shadow: 0 24px 60px var(--purple-glow) !important; transform: translateY(-10px) scale(1.04) !important; }
+      .hero-card-4:hover * { color: white !important; }
+      .hero-card-4:hover .text-secondary { color: rgba(255,255,255,.75) !important; }
+
       /* ── FLOAT CARDS ── */
       .float-card-1 { animation:float1 4s ease-in-out infinite; }
       .float-card-2 { animation:float2 5s ease-in-out infinite; }
@@ -176,6 +189,19 @@
       .hero-stats-inline .stat-item { display:flex; align-items:center; gap:10px; padding:8px 12px; border-radius:14px; flex:1; justify-content:center; }
       .hero-stats-inline .stat-item .stat-num-val { font-size:22px; font-weight:800; color:#111827; line-height:1.1; }
       .hero-stats-inline .stat-item .stat-label { font-size:13px; color:#6b7280; line-height:1.2; }
+       /* ── FIX 1: STICKY NAVBAR ── */
+      .navbar {
+        position: sticky !important;
+        top: 0;
+        z-index: 1050;
+        transition: box-shadow .3s ease, padding .3s ease !important;
+      }
+      .navbar.nav-scrolled {
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08) !important;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+      }
+
       /* ── TESTI NAV ── */
       .testi-nav-btn { position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:1.5px solid #e0e0ef; background:white; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:10; transition:background .3s ease,border-color .3s ease,box-shadow .3s ease,transform .3s var(--ease-spring); box-shadow:0 2px 10px rgba(123,125,252,.08); font-size:14px; color:#111827; }
       .testi-nav-btn:hover { background:#f0f0ff; border-color:#7B7DFC; color:#7B7DFC; transform:translateY(-50%) scale(1.1); box-shadow:0 6px 20px rgba(123,125,252,.2); }
@@ -184,59 +210,158 @@
       .testi-dot { width:10px; height:10px; border-radius:50%; background:#d1d5db; transition:background .3s ease,transform .3s ease; cursor:pointer; }
       .testi-dot.active { background:var(--purple); transform:scale(1.2); }
       .bi-meta { font-size:26px; color:#1877F2; }
-      /* ══════════════════════════════════════
-         RESPONSIVE FIXES
-      ══════════════════════════════════════ */
-      /* Hero mobile */
-      @media (max-width:991px) {
-        .hero-img { height:auto !important; min-height:300px; }
-        .float-card-1,.float-card-2,.float-card-3,.float-card-4 { display:none !important; }
-        .hero-bottom-row { flex-direction:column; align-items:flex-start; gap:16px; padding:16px 18px; }
-        .hero-social-proof { padding-right:0; border-right:none; border-bottom:1px solid #e5e7eb; padding-bottom:14px; width:100%; }
-        .hero-stats-inline { flex-wrap:wrap; gap:6px; width:100%; }
-        .hero-stats-inline .stat-item { flex:1 1 calc(50% - 6px); min-width:130px; }
-      }
-      @media (max-width:575px) {
-        .hero-heading { font-size:36px !important; }
-        .hero-stats-inline .stat-item { flex:1 1 100%; }
-      }
-      /* EXE section mobile */
-      @media (max-width:991px) {
-        .exe-timeline { flex-direction:column !important; gap:40px; align-items:center; }
-        .exe-line,.exe-dot,.exe-step-divider { display:none !important; }
-        .exe-step { width:100%; }
-      }
-      @media (max-width:575px) {
-        .exe-section { padding:32px 20px !important; }
-        .exe-header h2 { font-size:26px !important; }
-      }
-      /* Testi section mobile */
-      @media (max-width:575px) {
-        .testi-section-header h2 { font-size:30px !important; }
-        .testi-slider-wrap { padding:0 44px; }
-      }
-      /* CTA Banner mobile */
-      @media (max-width:991px) {
-        .cta-banner-inner { flex-direction:column !important; align-items:center !important; text-align:center; padding:32px 24px !important; }
-        .cta-text-block { position:static !important; transform:none !important; margin-bottom:20px; }
-        .cta-btn-block { position:static !important; transform:none !important; flex-direction:column !important; align-items:center; gap:12px !important; }
-        .cta-banner-wrap { height:auto !important; }
-        .btn-apply,.btn-advisor { width:100%; max-width:280px; text-align:center; }
-      }
-      @media (max-width:575px) {
-        .cta-text-block div { font-size:20px !important; }
-      }
+/* ══════════════════════════════════════
+   HERO RESPONSIVE
+══════════════════════════════════════ */
 
-      /* FAQ mobile */
-      @media (max-width:991px) {
-        .faq-row { flex-direction:column; }
-        .faq-left { margin-bottom:32px; }
-        .support-card { margin-top:32px !important; }
-      }
-      /* Footer mobile */
-      @media (max-width:767px) {
-        footer { padding:40px 20px 24px !important; }
-      }
+.hero-img{
+    position:relative;
+    height:600px;
+}
+
+.hero-img img{
+    width:100%;
+    max-width:700px;
+    height:auto;
+    display:block;
+}
+
+/* Tablet */
+@media (max-width:991px){
+
+    .hero-img{
+        height:500px !important;
+    }
+
+    .hero-img img{
+        width:100% !important;
+        max-width:100% !important;
+    }
+
+    /* Resize cards */
+    .float-card-1{
+        width:140px !important;
+        transform:scale(.85);
+    }
+
+    .float-card-2{
+        width:150px !important;
+        transform:scale(.85);
+    }
+
+    .float-card-3{
+        width:150px !important;
+        transform:scale(.85);
+    }
+
+    .float-card-4{
+        width:170px !important;
+        transform:scale(.85);
+    }
+
+    .float-card-1,
+    .float-card-2,
+    .float-card-3,
+    .float-card-4{
+        display:block !important;
+        transform-origin:center;
+        z-index:5;
+    }
+
+    .hero-bottom-row{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:16px;
+        padding:16px 18px;
+    }
+
+    .hero-social-proof{
+        width:100%;
+        border-right:none;
+        border-bottom:1px solid #e5e7eb;
+        padding-bottom:14px;
+    }
+
+    .hero-stats-inline{
+        width:100%;
+        flex-wrap:wrap;
+        gap:8px;
+    }
+
+    .hero-stats-inline .stat-item{
+        flex:1 1 calc(50% - 8px);
+        min-width:130px;
+    }
+}
+
+/* Mobile */
+@media (max-width:575px){
+
+    .hero-heading{
+        font-size:36px !important;
+        line-height:1.2 !important;
+    }
+
+    .hero-img{
+        height:380px !important;
+    }
+
+    .float-card-1{
+        width:100px !important;
+        transform:scale(.65);
+    }
+
+    .float-card-2{
+        width:110px !important;
+        transform:scale(.65);
+    }
+
+    .float-card-3{
+        width:110px !important;
+        transform:scale(.65);
+    }
+
+    .float-card-4{
+        width:120px !important;
+        transform:scale(.65);
+    }
+
+    .float-card-1,
+    .float-card-2,
+    .float-card-3,
+    .float-card-4{
+        display:block !important;
+        transform-origin:center;
+    }
+
+    .hero-stats-inline .stat-item{
+        flex:1 1 100%;
+    }
+}
+@media (max-width:991px){
+
+    .float-card-1{
+        width:140px !important;
+        top:25px !important;
+    }
+
+    .float-card-2{
+        width:150px !important;
+        top:220px !important;
+    }
+
+    .float-card-3{
+        width:150px !important;
+        top:25px !important;
+        right:5px !important;
+    }
+
+    .float-card-4{
+        width:170px !important;
+        top:240px !important;
+        right:0 !important;
+    }
+}
     </style>
   </head>
 
@@ -247,9 +372,9 @@
     <!-- ══ NAVBAR ══ -->
     <nav class="navbar navbar-expand-lg bg-white py-4">
       <div class="container">
-        <a class="navbar-brand fw-bold fs-2 text-decoration-none" href="#" style="color:#4f46e5;">
-          Flex<span style="color:#f5b400;">Work</span>
-        </a>
+        <a href="#" style="display:inline-block;margin-bottom:8px;">
+              <img src="logo.png" alt="FlexWork" style="height: 70px;width:auto;">
+            </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -300,7 +425,7 @@
             </div>
           </div>
           <div class="col-lg-7">
-            <div class="hero-img position-relative" style="height:600px;">
+            <div class="hero-img position-relative">
               <div class="position-absolute" style="top:0;z-index:2;">
                 <img src="HeroImage.png" class="img-fluid rounded-5" style="max-width:700px;" alt="Hero" />
               </div>
@@ -325,7 +450,7 @@
                 <div style="font-size:38px;font-weight:800;">4.8/5</div>
                 <small class="text-secondary">from 50K+ learners</small>
               </div>
-              <div class="position-absolute bg-white p-4 float-card-4 hover-lift"
+              <div class="position-absolute bg-white p-4 float-card-4 hero-card-yellow"
                 style="width:220px;right:0;top:340px;border-radius:20px;z-index:3;box-shadow:0 10px 30px rgba(0,0,0,.08);">
                 <i class="bi bi-people text-primary fs-5"></i>
                 <div class="fw-semibold mt-3">Live Mentorship</div>
@@ -456,8 +581,8 @@
       <div class="container">
         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center mb-5">
           <div>
-            <h2 class="fw-bold mb-2" style="font-size:48px;color:#111827;">Select Your Path to Mastery</h2>
-            <p style="font-size:18px;color:#6b7280;">Specialized curriculums designed for high-impact professional outcomes.</p>
+            <h2 class="fw-bold mb-2" style="font-size:36px;color:#111827;">Select Your Path to Mastery</h2>
+            <p style="font-size:24px;color:#6b7280;">Specialized curriculums designed for high-impact professional outcomes.</p>
           </div>
           <a href="#" class="fw-bold text-decoration-none" style="font-size:18px;color:#7B7DFC;">
             Explore All Programs <i class="bi bi-arrow-right ms-2"></i>
@@ -580,9 +705,9 @@
       <div class="container">
         <div class="exe-section reveal"
           style="background:linear-gradient(135deg,rgba(123,125,252,0.10) 0%,rgba(123,125,252,0.06) 50%,rgba(255,255,255,0.8) 100%);border:1px solid rgba(123,125,252,0.15);border-radius:28px;padding:48px 55px 40px;overflow:hidden;position:relative;">
-          <div style="margin-bottom:50px;">
+          <div style="text-align:center;margin-bottom:50px;">
             <h2 style="font-size:32px;font-weight:700;color:#6b6df8;margin-bottom:12px;line-height:1.2;">The Executive Learning Experience</h2>
-            <p style="font-size:15px;color:#4b5563;line-height:1.8;max-width:520px;margin:0;">
+           <p style="font-size:15px;color:#4b5563;line-height:1.8;text-align:center;max-width:520px;margin:0 auto;">
               Built for experienced professionals balancing leadership responsibilities,
               <br class="d-none d-md-block">
               career growth, and continuous upskilling.
